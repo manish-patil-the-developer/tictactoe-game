@@ -27,6 +27,16 @@ class Database {
         $stmt->close();
     }
 
+    // Method to fetch the latest game data
+    public function getLatestGame() {
+        $result = $this->conn->query("SELECT * FROM games ORDER BY timestamp DESC LIMIT 1");
+        if ($result && $result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+        }
+    }
+
     // Additional method to fetch game data by ID
     public function getGameById($gameId) {
         $stmt = $this->conn->prepare("SELECT * FROM games WHERE id = ?");
@@ -39,19 +49,3 @@ class Database {
 
     // Add other database methods as needed
 }
-
-// command to create database - 
-
-// CREATE DATABASE IF NOT EXISTS tic_tac_toe;
-
-// USE tic_tac_toe;
-
-// CREATE TABLE IF NOT EXISTS games (
-//     id INT AUTO_INCREMENT PRIMARY KEY,
-//     board_state TEXT NOT NULL,
-//     moves TEXT NOT NULL,
-//     winner CHAR(1),
-//     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-// );
-
-
