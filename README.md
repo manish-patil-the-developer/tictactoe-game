@@ -21,7 +21,7 @@ This is a simple Tic Tac Toe game implemented using PHP for the backend and Java
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/tic-tac-toe.git
+   git clone https://github.com/manish-patil-the-developer/tic-tac-toe.git
 2. Database setup :
   ```bash
    CREATE DATABASE IF NOT EXISTS tic_tac_toe;
