@@ -62,4 +62,9 @@ class Game {
         $this->moves = $moves;
         $this->currentPlayer = $currentPlayerSymbol === 'X' ? $this->playerX : $this->playerO;
     }
+
+    public function getWinningMove() {
+        return $this->board->getWinningMove();
+    }
+
 }
