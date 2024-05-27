@@ -46,6 +46,4 @@ class Database {
         $stmt->close();
         return $result;
     }
-
-    // Add other database methods as needed
 }

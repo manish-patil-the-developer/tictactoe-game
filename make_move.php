@@ -27,6 +27,7 @@ $result = $game->makeMove($row, $col);
 // Check game status
 $status = $game->checkGameStatus();
 $winner = $game->checkWinner();
+$getWinningMove = $game->getWinningMove();
 
 // Save the updated game state to the database
 $boardState = serialize($game->getBoard()->getCells());
@@ -40,6 +41,10 @@ $response = [
     'currentPlayer' => $game->getCurrentPlayer()->getSymbol(),
     'board' => $game->getBoard()->getCells()
 ];
+
+if(isset($response['status'])){
+    $response['winningMove'] = $getWinningMove;
+}
 
 header('Content-Type: application/json');
 echo json_encode($response);

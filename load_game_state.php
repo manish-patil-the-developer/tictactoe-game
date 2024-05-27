@@ -11,12 +11,12 @@ $response = [];
 if ($gameData) {
     $boardState = unserialize($gameData['board_state']);
     $moves = unserialize($gameData['moves']);
-    // print_r($moves[count($moves)-1]);
-    $currentPlayerSymbol = isset($moves[count($moves)-1]) && isset($moves[count($moves)-1]['player']) === 'X' ? 'O' : 'X'; // Determine current player based on the last move
+    $currentPlayerSymbol = isset($moves[count($moves)-1]) && isset($moves[count($moves)-1]['player']) && $moves[count($moves)-1]['player'] === 'X' ? 'O' : 'X'; // Determine current player based on the last move
 
     $response = [
         'success' => true,
         'board' => $boardState,
+        'resetBoard' => isset($gameData['winner']) && !empty($gameData['winner']) ? True : false ,
         'currentPlayer' => $currentPlayerSymbol
     ];
 } else {
