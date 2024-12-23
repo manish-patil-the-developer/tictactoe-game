@@ -56,6 +56,7 @@ class Game {
     public function getMoves() {
         return $this->moves;
     }
+    
 
     public function loadGameState($boardState, $moves, $currentPlayerSymbol) {
         $this->board->setCells($boardState);
